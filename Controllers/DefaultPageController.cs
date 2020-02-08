@@ -4,6 +4,7 @@ using EPiServer;
 using EPiServer.Framework.DataAnnotations;
 using AlloyDemo.Models.Pages;
 using AlloyDemo.Models.ViewModels;
+using AlloyDemo.Models.ViewModels;
 
 namespace AlloyDemo.Controllers
 {
@@ -19,6 +20,10 @@ namespace AlloyDemo.Controllers
     [TemplateDescriptor(Inherited = true)]
     public class DefaultPageController : PageControllerBase<SitePageData>
     {
+        public DefaultPageController(IContentLoader loader) : base(loader)
+        {
+        }
+
         public ViewResult Index(SitePageData currentPage)
         {
             var model = CreateModel(currentPage);

@@ -5,6 +5,9 @@ using EPiServer.DataAnnotations;
 using AlloyDemo.Business.Rendering;
 using AlloyDemo.Models.Properties;
 using EPiServer.Web;
+using EPiServer.Shell.ObjectEditing;
+using AlloyDemo.Business.SelectionFactories;
+using EPiServer.Security;
 
 namespace AlloyDemo.Models.Pages
 {
@@ -13,6 +16,12 @@ namespace AlloyDemo.Models.Pages
     /// </summary>
     public abstract class SitePageData : PageData, ICustomCssInContentArea
     {
+        [Display(Name = "Open Graph type",
+            GroupName = SiteTabNames.SEO, Order = 400)]
+        [SelectOne(SelectionFactoryType = typeof(OgTypeSelectionFactory))]
+        public virtual string OgType { get; set; }
+
+
         [Display(
             GroupName = Global.GroupNames.MetaData,
             Order = 100)]
@@ -93,4 +102,17 @@ namespace AlloyDemo.Models.Pages
             get { return "teaserblock"; } //Page partials should be style like teasers
         }
     }
+
+    [GroupDefinitions]
+    public static class SiteTabNames
+    {
+        [Display(Order = 10)] // to sort horizontal tabs
+        [RequiredAccess(AccessLevel.Edit)]
+        public const string SEO = "SEO";
+
+        [Display(Order = 20)]
+        [RequiredAccess(AccessLevel.Administer)]
+        public const string SiteSettings = "Site Settings";
+    }
+
 }

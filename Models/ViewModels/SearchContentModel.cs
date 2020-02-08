@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AlloyDemo.Models.Pages;
+using AlloyDemo.Models.ViewModels;
 
 namespace AlloyDemo.Models.ViewModels
 {

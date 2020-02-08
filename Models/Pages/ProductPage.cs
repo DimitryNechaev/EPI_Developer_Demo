@@ -5,6 +5,8 @@ using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using AlloyDemo.Models.Properties;
+using EPiServer.Shell.ObjectEditing;
+using AlloyDemo.Business.SelectionFactories;
 
 namespace AlloyDemo.Models.Pages
 {
@@ -20,10 +22,25 @@ namespace AlloyDemo.Models.Pages
         IncludeOn = new[] { typeof(StartPage) })]
     public class ProductPage : StandardPage, IHasRelatedContent
     {
-        [Required]
-        [Display(Order = 305)]
-        [UIHint(Global.SiteUIHints.StringsCollection)]
+        public override void SetDefaultValues(ContentType contentType)
+        {
+            base.SetDefaultValues(contentType);
+
+            Theme = "theme1";
+        }
+
+        [SelectOne(SelectionFactoryType = typeof(ThemeSelectionFactory))]
+        [Display(Name = "Color theme",
+            GroupName = SystemTabNames.Content,
+            Order = 310)]
+        public virtual string Theme { get; set; }
+
         [CultureSpecific]
+        [Display(Name = "Unique selling points",
+            GroupName = SystemTabNames.Content,
+            Order = 320)]
+        [Required]
+        [UIHint(Global.SiteUIHints.StringsCollection)]
         public virtual IList<string> UniqueSellingPoints { get; set; }
 
         [Display(

@@ -1,4 +1,6 @@
-﻿using EPiServer;
+﻿using AlloyDemo.Models.POCOs;
+using EPiServer;
+using EPiServer.Cms.Shell.UI.ObjectEditing.EditorDescriptors;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
@@ -14,10 +16,15 @@ namespace AlloyDemo.Models.Pages
     [ContentType(DisplayName = "Property Types Demo",
         GUID = "45c1248f-37bf-42e1-ad2f-e67d76a4423d",
         Description = "Use this page to demonstrate various types used for properties.")]
-    [AvailableContentTypes(IncludeOn = new[] { typeof(StartPage) })]
+    [AvailableContentTypes(IncludeOn = new[] { typeof(StandardPage) })]
     public class PropertyTypesDemoPage : PageData
     {
-        // Text
+        [EditorDescriptor(EditorDescriptorType = typeof(CollectionEditorDescriptor<Person>))]
+        [Display(Name = "People list", Order = 1, GroupName = PropertyTypesDemoPageTabs.Extras)]
+        public virtual IList<Person> People { get; set; }
+
+        [Display(Name = "Decimal", Order = 20, GroupName = PropertyTypesDemoPageTabs.Extras)]
+        public virtual decimal Amount { get; set; }
 
         [Display(Name = "Rich text", Order = 10, GroupName = PropertyTypesDemoPageTabs.Text)]
         public virtual XhtmlString RichText { get; set; }
@@ -104,6 +111,7 @@ namespace AlloyDemo.Models.Pages
         public const string Numbers = "Numbers";
         public const string References = "References";
         public const string Miscellaneous = "Miscellaneous";
+        public const string Extras = "Extras";
     }
 
     public class DayOfWeekSelectionFactory : ISelectionFactory

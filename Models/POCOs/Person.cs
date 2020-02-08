@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AlloyTraining.Models.POCOs
+namespace AlloyDemo.Models.POCOs
 {
     public class Person
     {

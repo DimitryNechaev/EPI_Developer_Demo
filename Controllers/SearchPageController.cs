@@ -12,6 +12,7 @@ using EPiServer.Web;
 using EPiServer.Web.Hosting;
 using EPiServer.Web.Mvc.Html;
 using EPiServer.Web.Routing;
+using EPiServer;
 
 namespace AlloyDemo.Controllers
 {
@@ -27,7 +28,8 @@ namespace AlloyDemo.Controllers
             SearchService searchService,
             ContentSearchHandler contentSearchHandler,
             TemplateResolver templateResolver,
-            UrlResolver urlResolver)
+            UrlResolver urlResolver,
+            IContentLoader loader) : base(loader)
         {
             _searchService = searchService;
             _contentSearchHandler = contentSearchHandler;

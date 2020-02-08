@@ -1,6 +1,7 @@
 using System.Web.Mvc;
 using AlloyDemo.Models.Pages;
 using AlloyDemo.Models.ViewModels;
+using AlloyDemo.Models.ViewModels;
 using EPiServer.Web.Routing;
 
 namespace AlloyDemo.Business

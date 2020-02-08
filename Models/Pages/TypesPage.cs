@@ -1,6 +1,6 @@
 ﻿using AlloyDemo.Models.Pages;
-using AlloyTraining.Business.SelectionFactories; // WorkStatusSelectionFactory
-using AlloyTraining.Models.POCOs; // Person
+using AlloyDemo.Business.SelectionFactories; // WorkStatusSelectionFactory
+using AlloyDemo.Models.POCOs; // Person
 using EPiServer; // Url
 using EPiServer.Cms.Shell.UI.ObjectEditing.EditorDescriptors; // CollectionEditorDescriptor
 using EPiServer.Core; // PageData, XhtmlString
@@ -13,11 +13,12 @@ using System; // DateTime
 using System.Collections.Generic; // IList<T>
 using System.ComponentModel.DataAnnotations; // [UIHint], [StringLength], [Display], [RegularExpression]
 
-namespace AlloyTraining.Models.Pages
+namespace AlloyDemo.Models.Pages
 {
     [ContentType(DisplayName = "Types", 
         GUID = "57fa8702-8a82-469b-8b79-9dac824d2636", 
         Description = "Use this to explore property types.")]
+    [AvailableContentTypes(IncludeOn = new[] { typeof(StandardPage) })]
     public class TypesPage : PageData
     {
         #region Supported .NET types

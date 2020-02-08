@@ -3,7 +3,7 @@ using EPiServer.DataAnnotations; // RegularExpression
 using System.ComponentModel.DataAnnotations; // [StringLength], [RegularExpression], [Range]
 using Epi = EPiServer.Framework; // Validator
 
-namespace AlloyTraining.Models.Pages
+namespace AlloyDemo.Models.Pages
 {
     [ContentType(DisplayName = "Validating", 
         GUID = "ed0e939e-58fc-446e-b9db-231cbe045010", 

@@ -1,7 +1,7 @@
 ﻿using EPiServer.Shell.ObjectEditing; // ISelectionFactory, ISelectItem, SelectItem, ExtendedMetadata
 using System.Collections.Generic; // IEnumerable<T>, List<T>
 
-namespace AlloyTraining.Business.SelectionFactories
+namespace AlloyDemo.Business.SelectionFactories
 {
     public class WorkStatusSelectionFactory : ISelectionFactory
     {
