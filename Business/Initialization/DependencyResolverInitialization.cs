@@ -18,8 +18,8 @@ namespace AlloyDemo.Business.Initialization
             context.ConfigurationComplete += (o, e) =>
             {
                 //Register custom implementations that should be used in favour of the default implementations
-                context.Services.AddTransient<IContentRenderer, ErrorHandlingContentRenderer>()
-                    .AddTransient<ContentAreaRenderer, AlloyContentAreaRenderer>();
+                //context.Services.AddTransient<IContentRenderer, ErrorHandlingContentRenderer>()
+                //    .AddTransient<ContentAreaRenderer, AlloyContentAreaRenderer>();
             };
         }
 

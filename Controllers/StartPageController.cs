@@ -3,11 +3,13 @@ using AlloyDemo.Models.Pages;
 using AlloyDemo.Models.ViewModels;
 using AlloyDemo.Models.ViewModels;
 using EPiServer;
+using EPiServer.Framework.DataAnnotations;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
 
 namespace AlloyDemo.Controllers
 {
+    [TemplateDescriptor(Inherited = false)]
     public class StartPageController : PageControllerBase<StartPage>
     {
         public StartPageController(IContentLoader loader) : base(loader)

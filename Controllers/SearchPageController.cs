@@ -13,9 +13,11 @@ using EPiServer.Web.Hosting;
 using EPiServer.Web.Mvc.Html;
 using EPiServer.Web.Routing;
 using EPiServer;
+using EPiServer.Framework.DataAnnotations;
 
 namespace AlloyDemo.Controllers
 {
+    [TemplateDescriptor(Inherited = false)]
     public class SearchPageController : PageControllerBase<SearchPage>
     {
         private const int MaxResults = 40;

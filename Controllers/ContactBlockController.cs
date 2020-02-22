@@ -8,9 +8,11 @@ using AlloyDemo.Models.ViewModels;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
 using EPiServer;
+using EPiServer.Framework.DataAnnotations;
 
 namespace AlloyDemo.Controllers
 {
+    [TemplateDescriptor(Inherited = false)]
     public class ContactBlockController : BlockController<ContactBlock>
     {
         private readonly IContentLoader _contentLoader;

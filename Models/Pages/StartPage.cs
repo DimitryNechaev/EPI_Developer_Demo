@@ -21,8 +21,10 @@ namespace AlloyDemo.Models.Pages
     public class StartPage : SitePageData
     {
         [Display(
+            Name = "Main content area",
             GroupName = SystemTabNames.Content,
             Order = 320)]
+        [AllowedTypes(typeof(StandardPage), typeof(BlockData), typeof(ImageData), typeof(ContentFolder))]
         [CultureSpecific]
         public virtual ContentArea MainContentArea { get; set; }
 
